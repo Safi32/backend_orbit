@@ -7,8 +7,7 @@ import {Schema} from "mongoose";
 import pM from "mongoose-paginate-v2";
 import {ChatRequestStatus, RoomType} from "../../../core/utils/enums";
 import {RoomMemberSchema} from "../../room_member/entities/room_member.entity";
-
-
+import { Document } from 'mongoose';
 
 export interface IChatRequest extends Document {
     senderId: string

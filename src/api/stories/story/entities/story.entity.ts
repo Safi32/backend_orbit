@@ -7,6 +7,8 @@ import {Schema} from "mongoose";
  import {StoryFontType, StoryPrivacy, StoryType} from "../../../../core/utils/enums";
 import aggregatePaginate from "mongoose-aggregate-paginate-v2";
 import {RoomMemberSchema} from "../../../../chat/room_member/entities/room_member.entity";
+import { Document } from 'mongoose';
+
 
 export interface IStory extends Document {
     userId: string;
