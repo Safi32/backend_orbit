@@ -19,8 +19,9 @@
     "skipLibCheck": true,
     "noImplicitAny": false,
     "allowJs": true,
-    "types": []
+    "moduleResolution": "node",
+    "types": ["node"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/types/**/*"],
   "exclude": ["node_modules", "dist"]
 }
