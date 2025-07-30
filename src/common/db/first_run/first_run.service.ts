@@ -17,7 +17,7 @@ import {VersionsService} from "../../../api/versions/versions.service";
 
 import {UserGlobalCallStatus} from "../../../chat/call_modules/utils/user-global-call-status.model";
 import {CallHistoryService} from "../../../chat/call_modules/call_history/call_history.service";
-import {APP_VERSION} from "../../../core/utils/constants";
+const { version } = require('../../../package.json');
 
 @Injectable()
 export class FirstRunService {
@@ -58,7 +58,7 @@ export class FirstRunService {
         let oldConfig = await this.appConfigService.getConfig();
         if (!oldConfig) {
             await this.appConfigService.insert({
-                backendVersion: APP_VERSION
+                backendVersion: version
             });
             return "new config has been set version is => 1"
         }

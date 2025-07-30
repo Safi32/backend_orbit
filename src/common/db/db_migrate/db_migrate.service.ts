@@ -7,7 +7,7 @@ import root from "app-root-path";
 import {newMongoObjId} from "../../../core/utils/utils";
 import {IUser} from "../../../api/user_modules/user/entities/user.entity";
 import {UserPrivacyTypes, UserRole} from "../../../core/utils/enums";
-import {APP_VERSION} from "../../../core/utils/constants";
+const { version } = require('../../../package.json');
 
 @Injectable()
 export class DbMigrateService {
@@ -24,8 +24,8 @@ export class DbMigrateService {
 
     private async _startMigrate() {
         let config = await this.appConfigService.getConfig()
-        if (APP_VERSION.toString() != config.backendVersion.toString()) {
-            await this._migrateFromVersion1To2(APP_VERSION);
+        if (version.toString() != config.backendVersion.toString()) {
+            await this._migrateFromVersion1To2(version);
         }
     }
 

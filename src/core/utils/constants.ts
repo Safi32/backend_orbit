@@ -21,8 +21,7 @@ const usersMaxNameSize = 50
 const usersMaxPasswordSize = 255
 const usersMimePasswordSize = 6
 
-// App version constant - update this when you update package.json version
-export const APP_VERSION = "1.0.1";
+
 
 export {
     whitelistImages,
