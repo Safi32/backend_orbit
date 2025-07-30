@@ -6,7 +6,8 @@
 
 import {Controller, Get, Param, Query, Res} from "@nestjs/common";
 import {join} from "path";
- import {ConfigService} from "@nestjs/config";
+import {ConfigService} from "@nestjs/config";
+const { version } = require('../package.json');
 
 @Controller()
 export class AppController {
@@ -64,6 +65,24 @@ export class AppController {
     @Get()
     getHello(@Res() res): string {
         return res.sendFile(join(process.cwd(), "public/home.html"));
+    }
+
+    @Get("health")
+    getHealth() {
+        return {
+            status: "success",
+            message: "Orbit Chat API is running!",
+            version: version,
+            timestamp: new Date().toISOString(),
+            environment: process.env.NODE_ENV || "development",
+            uptime: process.uptime(),
+            memory: process.memoryUsage(),
+            endpoints: {
+                health: "/health",
+                privacy: "/privacy-policy",
+                profile: "/profile/:id"
+            }
+        };
     }
 
 }

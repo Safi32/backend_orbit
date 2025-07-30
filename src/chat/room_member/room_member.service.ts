@@ -7,7 +7,8 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from '@nestjs/mongoose';
 import mongoose, {FilterQuery, Model, PaginateModel, QueryOptions, UpdateQuery} from 'mongoose';
-import {BaseRoomService} from 'src/core/common/base.room.service';
+// import {BaseRoomService} from 'src/core/common/base.room.service';
+import { BaseRoomService } from '../../core/common/base.room.service';
 import {IRoomMember} from "./entities/room_member.entity";
 
 
