@@ -7,7 +7,7 @@
 import mongoose from "mongoose";
  import {RegisterStatus} from "../../../core/utils/enums";
 import {VRoomsIcon} from "../../../core/utils/interfaceces";
-import {version} from '../../../../package.json';
+import {APP_VERSION} from "../../../core/utils/constants";
 
 export interface IAppConfig {
     _id: string,
@@ -49,7 +49,7 @@ export interface IAppConfig {
 export const AppConfigSchema = new mongoose.Schema(
     {
         configVersion: {type: Number, default: 1},
-        backendVersion: {type: String,default:"1.0.0" },
+        backendVersion: {type: String,default: APP_VERSION },
         enableAds: {type: Boolean, default: true},
         feedbackEmail: {type: String, default: "vchatsdk@gmail.com"},
         allowWebLogin: {type: Boolean, default: true},

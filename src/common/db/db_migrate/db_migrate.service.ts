@@ -7,6 +7,7 @@ import root from "app-root-path";
 import {newMongoObjId} from "../../../core/utils/utils";
 import {IUser} from "../../../api/user_modules/user/entities/user.entity";
 import {UserPrivacyTypes, UserRole} from "../../../core/utils/enums";
+import {APP_VERSION} from "../../../core/utils/constants";
 
 @Injectable()
 export class DbMigrateService {
@@ -22,12 +23,9 @@ export class DbMigrateService {
 
 
     private async _startMigrate() {
-        let rawData = fs.readFileSync(join(root.path, "package.json"), "utf8");
-        let packageOfJson = JSON.parse(rawData);
-        let newVersion = packageOfJson.version;
         let config = await this.appConfigService.getConfig()
-        if (newVersion.toString() != config.backendVersion.toString()) {
-            await this._migrateFromVersion1To2(newVersion);
+        if (APP_VERSION.toString() != config.backendVersion.toString()) {
+            await this._migrateFromVersion1To2(APP_VERSION);
         }
     }
 

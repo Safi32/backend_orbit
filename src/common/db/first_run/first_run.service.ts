@@ -17,6 +17,7 @@ import {VersionsService} from "../../../api/versions/versions.service";
 
 import {UserGlobalCallStatus} from "../../../chat/call_modules/utils/user-global-call-status.model";
 import {CallHistoryService} from "../../../chat/call_modules/call_history/call_history.service";
+import {APP_VERSION} from "../../../core/utils/constants";
 
 @Injectable()
 export class FirstRunService {
@@ -56,10 +57,8 @@ export class FirstRunService {
     private async _setConfig() {
         let oldConfig = await this.appConfigService.getConfig();
         if (!oldConfig) {
-            let rawData = fs.readFileSync(join(root.path, "package.json"), "utf8");
-            let packageOfJson = JSON.parse(rawData);
             await this.appConfigService.insert({
-                backendVersion: packageOfJson.version
+                backendVersion: APP_VERSION
             });
             return "new config has been set version is => 1"
         }

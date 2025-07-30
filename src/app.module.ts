@@ -56,7 +56,7 @@ import {StoryModule} from './api/stories/story/story.module';
 import {UserStoryModule} from './api/stories/user_story/user_story.module';
 import {IUser} from "./api/user_modules/user/entities/user.entity";
 import {DbMigrateModule} from './common/db/db_migrate/db_migrate.module';
-import {version} from '../package.json';
+import {APP_VERSION} from './core/utils/constants';
 import {FirstRunModule} from './common/db/first_run/first_run.module';
 import { ChatRequestModule } from './chat/chat_request/chat_request.module';
 import {StoryAttachmentModule} from "./api/stories/story_attachment/story_attachment.module";
