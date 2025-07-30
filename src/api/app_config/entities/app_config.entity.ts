@@ -7,7 +7,7 @@
 import mongoose from "mongoose";
  import {RegisterStatus} from "../../../core/utils/enums";
 import {VRoomsIcon} from "../../../core/utils/interfaceces";
-import { version } from '../../package.json'; 
+const { version } = require('../../../../package.json'); 
 
 export interface IAppConfig {
     _id: string,
